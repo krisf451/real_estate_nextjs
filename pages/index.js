@@ -22,7 +22,7 @@ const Banner = ({
       <Text color="gray.500" fontSize="sm" fontWeight="medium">
         {purpose}
       </Text>
-      <Text fontSize="3x1" fontWeight="bold">
+      <Text fontSize="3xl" fontWeight="bold">
         {title1}
         <br />
         {title2}
@@ -30,7 +30,7 @@ const Banner = ({
       <Text fontSize="lg" paddingTop="3" color="gray.700">
         {desc1} <br /> {desc2}
       </Text>
-      <Button fontSize="x1">
+      <Button fontSize="xl">
         <Link href={linkName}>{buttonText}</Link>
       </Button>
     </Box>
@@ -41,7 +41,7 @@ export default function Home({ propertyForRent, propertyForSale }) {
   return (
     <Box>
       <Banner
-        purpose={"RENT A HOME"}
+        purpose="RENT A HOME"
         title1="Rental Homes for"
         title2="Everyone"
         desc1="Explore Apartments, Villas, Homes"
@@ -56,7 +56,7 @@ export default function Home({ propertyForRent, propertyForSale }) {
         ))}
       </Flex>
       <Banner
-        purpose={"BUY A HOME"}
+        purpose="BUY A HOME"
         title1="Find, Buy & Own Your"
         title2="Dream Home"
         desc1="Explore Apartments, Villas, Homes"
@@ -65,9 +65,11 @@ export default function Home({ propertyForRent, propertyForSale }) {
         linkName="/search?purpose=for-sale"
         imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008"
       />
-      {propertyForSale.map((property) => (
-        <Property property={property} key={property.id} />
-      ))}
+      <Flex flexWrap="wrap">
+        {propertyForSale.map((property) => (
+          <Property property={property} key={property.id} />
+        ))}
+      </Flex>
     </Box>
   );
 }
